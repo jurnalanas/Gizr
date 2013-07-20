@@ -1,0 +1,617 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="utf-8">
+<title>Gizr app</title>
+<!-- <link rel="stylesheet" href="jquery.mobile/jquery.mobile.theme-1.3.1.min.css" type="text/css"/> -->
+<!-- <link rel="stylesheet" href="jquery.mobile/jquery.mobile-1.3.1.min.css" type="text/css"/> -->
+<link rel="stylesheet" href="jquery.mobile/jquery.mobile.flatui.css" type="text/css"/>
+<link rel="stylesheet" href="gizr.css" type="text/css"/>
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDD353fOPh-KBUQ-2ekPCg75uxXRn0D9Tk&sensor=false"></script>
+
+	<script type="text/javascript" src="json2.js"></script>
+	
+    <script type="text/javascript" src="exercisetracker.js"></script> 
+
+<script src="jquery.mobile/jquery.js"></script>
+<script src="jquery.mobile/jquery.mobile-1.3.1.min.js"></script>
+
+</head>
+<body> 
+<div data-role="page" id="home" data-theme="d" data-title="Home">
+	<div data-role="header" data-id="vs_header" data-nobackbtn="false">
+		<h1 class="logo">[ Gizr ]</h1>
+		<!-- <a href="#setting" data-theme="c" data-icon="grid" data-mini="true">Setting</a> -->
+      <a data-iconpos="notext" href="#setting" data-role="button" data-transition="fade" data-icon="flat-menu"></a>
+		<a href="#about" data-theme="d" data-icon="info">About</a>
+	</div>
+		<!-- <a href="#pagehome" data-icon="arrow-l" data-direction="reverse">Back</a> -->
+	<div data-role="content">
+	<ul data-role="listview" data-inset="true" > 
+		<li data-role="list-divider" data-theme="c">
+		<div class="quote">A year from Now, You'll wish You had started today.</div>
+		</li>
+		<li data-role="list-divider"  data-theme="a">
+		<div class="quotesauth-div">- Karen Lamb</div>
+	</li>
+	</ul>
+		<ul data-role="listview" data-inset="true" data-divider-theme="b">
+					<li data-role="list-divider">Poin kamu sekarang: <b>100</b></li>
+					<li data-icon="flat-new" data-transition="slidefade" data-theme="f"><a href="#log" class="log">Isi Log Hari ini</a></li>
+					<li data-role="list-divider">Menu</li>
+					<li data-icon="flat-lock" data-transition="slidefade"><a href="#makan">Rekomendasi Menu</a></li>
+					<li data-icon="flat-man" data-transition="slidefade"><a href="#olahraga">Olahraga</a></li>
+					<li data-icon="flat-time" data-transition="slidefade"><a href="#tidur">Tidur Tracker</a></li>
+		</ul>		
+	</div>
+	<div data-role="footer" data-position="fixed">
+		<h4>&copy; Kelompok Mamake, Compfest- 2013</h4>
+	</div>
+</div>
+
+<div data-role="page" id="page2"> <!-- page2 -->
+	<div data-role="header" data-id="vs_header">
+		<h1>Page Two</h1>        
+	</div>
+	<div data-role="content" data-theme="b">
+		<div data-role="fieldcontain">
+			<label for="select" class="select"  data-theme="a">Choose:</label>
+			<select id="select" name="select" data-native-menu="false">
+				<option value="value1">option1</option>
+				<option value="value2">option2</option>
+				<option value="value3">option3</option>
+			</select>
+		</div>
+	  <div data-role="fieldcontain">
+	    <label for="flipswitch">Option:</label>
+	    <select name="flipswitch" id="flipswitch" data-role="slider">
+	      <option value="off">Off</option>
+	      <option value="on">On</option>
+        </select>
+      </div>
+
+    
+	<div data-role="collapsible-set" data-theme="b" data-content-theme="b">
+        <div data-role="collapsible" data-collapsed-icon="flat-time" data-expanded-icon="flat-cross" data-collapsed="false">
+          <h3>Section 1</h3>
+          <p>I'm the collapsible content for section 1</p>
+        </div>
+        <div data-role="collapsible" data-collapsed-icon="flat-calendar" data-expanded-icon="flat-cross">
+          <h3>Section 2</h3>
+          <p>I'm the collapsible content for section 2</p>
+        </div>
+        <div data-role="collapsible" data-collapsed-icon="flat-settings" data-expanded-icon="flat-cross">
+          <h3>Section 3</h3>
+          <p>I'm the collapsible content for section 3</p>
+        </div>
+      </div>
+    
+	  <div data-role="fieldcontain">
+	  	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	  	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	  	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	  	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	  	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	  	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	    <label for="slider">Value:</label>
+	    <input name="slider" type="range" id="slider" max="100" min="0" value="0" data-theme="e" />
+      </div>
+    
+    <a href="#" data-role="button" data-icon="gear" data-iconpos="right">Button</a>	
+			
+	</div>
+	<div data-role="footer"
+			data-position="fixed"
+			data-theme="a"
+			data-id="vs_footer">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" 
+					data-role="button"
+					data-icon="home"
+					>Home</a></li>
+					<li><a href="#" 
+					data-role="button"
+					data-icon="arrow-r"
+					>Blog</a></li>
+					<li><a href="#videos" 
+					data-role="button"
+					data-icon="arrow-r"
+					>Videos</a></li>
+					<li><a href="#photos" 
+					data-role="button"
+					data-icon="arrow-r"
+					>Photos</a></li>
+					<li><a href="#tweets" 
+					data-role="button"
+					data-icon="arrow-r"
+					>Tweets</a></li>
+				</ul>
+			</div><!-- navbar -->
+		</div><!-- footer -->
+</div>
+
+<div data-role="page" id="makan" data-title="Menu">
+	<div data-role="header" data-id="vs_header">
+		<h1>Pilihan Menu Makan</h1>
+		<a data-iconpos="notext" href="#home" data-role="button" data-direction="reverse" data-icon="arrow-l"></a>
+		<a href="#about" data-icon="info" data-iconpos="notext">About</a>
+	</div>
+	<div data-role="content">
+		<p>Maaf, ada gangguan pada database, silahkan coba lagi..</p>
+	</div>
+	<div data-role="footer"
+			data-position="fixed"
+			data-id="vs_footer">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" 
+					data-role="button"
+					data-icon="home"
+					>Home</a></li>
+<li><a href="#makan" 
+					data-role="button"
+					data-icon="flat-time"
+					>Makan</a></li>
+					<li><a href="#olahraga" 
+					data-role="button"
+					data-icon="flat-cmd"
+					>Olahraga</a></li>
+					<li><a href="#tidur" 
+					data-role="button"
+					data-icon="flat-bubble"
+					>Tidur</a></li>
+					<li><a href="#setting" 
+					data-role="button"
+					data-icon="flat-settings"
+					>Setting</a></li>
+				</ul>
+			</div><!-- navbar -->
+		</div><!-- footer -->
+</div> <!-- makan abis -->
+
+<div data-role="page" id="setting" data-title="Setting">
+	<div data-role="header" data-id="vs_header">
+		<h1>Pilihan Menu Makan</h1>
+		<a data-iconpos="notext" href="#home" data-role="button" data-direction="reverse"  data-icon="arrow-l"></a>
+		<a href="#about" data-icon="info" data-iconpos="notext">About</a>
+	</div>
+	<div data-role="content">
+		<form>	
+			<div data-role="fieldcontain">
+				<label for="berat">Berat badan (kg)</label>
+				<input type="text" name="" id="berat" value="" />
+			</div>
+			<div data-role="fieldcontain">
+				<label for="select" class="select">Umur:</label>
+				<select id="select" name="select" data-native-menu="false">
+					<option value="value1">10 - 15 tahun</option>
+					<option value="value2">16 - 24 tahun</option>
+					<option value="value3">24 - 35 tahun</option>
+				</select>
+			</div>
+			<fieldset data-role="controlgroup" data-type="horizontal" class="pilih">
+	        <legend>Keaktifan sehari-hari:</legend>
+		        <input type="radio" name="radio-choice-h-2" id="radio-choice-h-2a" value="on" checked="checked">
+		        <label for="radio-choice-h-2a">Biasa</label>
+		        <input type="radio" name="radio-choice-h-2" id="radio-choice-h-2b" value="off">
+		        <label for="radio-choice-h-2b">Sibuk</label>
+		        <input type="radio" name="radio-choice-h-2" id="radio-choice-h-2c" value="other">
+	        <label for="radio-choice-h-2c">Sibuk Sekali</label>
+	    	</fieldset>
+		</form><br>
+		<a href="#home" data-role="button" data-theme="d">Submit</a>
+	</div>
+	<div data-role="footer"
+			data-position="fixed"
+			data-id="vs_footer">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" 
+					data-role="button"
+					data-icon="home"
+					>Home</a></li>
+<li><a href="#makan" 
+					data-role="button"
+					data-icon="flat-time"
+					>Makan</a></li>
+					<li><a href="#olahraga" 
+					data-role="button"
+					data-icon="flat-cmd"
+					>Olahraga</a></li>
+					<li><a href="#tidur" 
+					data-role="button"
+					data-icon="flat-bubble"
+					>Tidur</a></li>
+					<li><a href="#setting" 
+					data-role="button"
+					data-icon="flat-settings"
+					>Setting</a></li>
+				</ul>
+			</div><!-- navbar -->
+		</div><!-- footer -->
+</div>
+
+<!-- Start of Trackwork Out page -->
+<div data-role="page" id="olahraga" data-title="Olahraga">
+
+	<div data-role="header">
+		<h1>Track Lari</h1>
+		<a data-iconpos="notext" href="#home" data-role="button" data-direction="reverse" data-icon="arrow-l"></a>
+		<a href="#about" data-icon="info" data-iconpos="notext">About</a>
+	<hr>
+		<div data-role="navbar">
+			<ul data-theme="g">
+				<li><a href="#olahraga" data-transition="none" data-icon="home" selected>Olahraga</a></li>
+				<!-- <li><a href="#startTracking" data-transition="none" data-icon="plus">Track Workout</a></li> -->
+				<li><a href="#history" data-transition="none" data-icon="star">History</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div data-role="content">	
+		<p id="startTracking_status"></p>
+			<div data-role="fieldcontain" class="ui-hide-label">
+				<label for="track_id">Track ID/Name:</label>
+				<input type="text" name="track_id" id="track_id" placeholder="Nama Id"/>
+			</div>
+
+		<button data-role="button" id="startTracking_start" data-theme="f">Mulai Tracking</button>
+		<button data-role="button" id="startTracking_stop" data-theme="d">Stop Tracking</button>  
+		
+				<p id="startTracking_info"></p>
+		
+		
+	</div>
+	<div data-role="footer"
+			data-position="fixed"
+			data-id="vs_footer">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" 
+					data-role="button"
+					data-icon="home"
+					>Home</a></li>
+<li><a href="#makan" 
+					data-role="button"
+					data-icon="flat-time"
+					>Makan</a></li>
+					<li><a href="#olahraga" 
+					data-role="button"
+					data-icon="flat-cmd"
+					>Olahraga</a></li>
+					<li><a href="#tidur" 
+					data-role="button"
+					data-icon="flat-bubble"
+					>Tidur</a></li>
+					<li><a href="#setting" 
+					data-role="button"
+					data-icon="flat-settings"
+					>Setting</a></li>
+				</ul>
+			</div><!-- navbar -->
+		</div><!-- footer -->
+</div><!-- /page -->
+
+<!-- Start of the History page -->
+<div data-role="page" id="history">
+
+    <div data-role="header">
+        <h1>History</h1>
+		<a data-iconpos="notext" href="#home" data-role="button" data-direction="reverse" data-icon="arrow-l"></a>
+
+		<a href="#about" data-icon="info" data-iconpos="notext">About</a>
+		<hr>
+
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#olahraga" data-transition="none" data-icon="home">Olahraga</a></li>
+                <!-- <li><a href="#startTracking" data-transition="none" data-icon="plus">Track Workout</a></li> -->
+                <li><a href="#history" data-transition="none" data-icon="star" selected>History</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div data-role="content">	
+        <p id="tracks_recorded"></p>
+        
+        <ul data-role="listview" id="history_tracklist">
+
+        </ul>
+    </div>
+    <div data-role="footer"
+			data-position="fixed"
+			data-id="vs_footer">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" 
+					data-role="button"
+					data-icon="home"
+					>Home</a></li>
+<li><a href="#makan" 
+					data-role="button"
+					data-icon="flat-time"
+					>Makan</a></li>
+					<li><a href="#olahraga" 
+					data-role="button"
+					data-icon="flat-cmd"
+					>Olahraga</a></li>
+					<li><a href="#tidur" 
+					data-role="button"
+					data-icon="flat-bubble"
+					>Tidur</a></li>
+					<li><a href="#setting" 
+					data-role="button"
+					data-icon="flat-settings"
+					>Setting</a></li>
+				</ul>
+			</div><!-- navbar -->
+		</div><!-- footer -->
+</div><!-- /page -->
+
+<!-- Track Info page -->
+<div data-role="page" id="track_info">
+
+	<div data-role="header">
+		<h1>View Satu Latihan</h1>
+		<a data-iconpos="notext" href="#home" data-role="button" data-direction="reverse" data-icon="arrow-l"></a>
+
+		<a href="#about" data-icon="info" data-iconpos="notext">About</a>
+		<hr>
+		
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#olahraga" data-transition="none" data-icon="home">Olahraga</a></li>
+				<!-- <li><a href="#startTracking" data-transition="none" data-icon="plus">Track Workout</a></li> -->
+				<li><a href="#history" data-transition="none" data-icon="star">History</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div data-role="content">	
+		<p id="track_info_info"></p>
+		
+		<div id="map_canvas"></div>
+		
+	</div>
+	<div data-role="footer"
+			data-position="fixed"
+			data-id="vs_footer">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" 
+					data-role="button"
+					data-icon="home"
+					>Home</a></li>
+<li><a href="#makan" 
+					data-role="button"
+					data-icon="flat-time"
+					>Makan</a></li>
+					<li><a href="#olahraga" 
+					data-role="button"
+					data-icon="flat-cmd"
+					>Olahraga</a></li>
+					<li><a href="#tidur" 
+					data-role="button"
+					data-icon="flat-bubble"
+					>Tidur</a></li>
+					<li><a href="#setting" 
+					data-role="button"
+					data-icon="flat-settings"
+					>Setting</a></li>
+				</ul>
+			</div><!-- navbar -->
+		</div><!-- footer -->
+</div>
+
+<div data-role="page" id="tidur" data-title="Tidur">
+	<div data-role="header" data-id="vs_header">
+		<h1>Analisis Jam Tidur</h1>
+		<a data-iconpos="notext" href="#home" data-role="button" data-direction="reverse"  data-icon="arrow-l"></a>
+		<a href="#about" data-icon="info" data-iconpos="notext">About</a>
+	</div>
+	<div data-role="content">
+	<form>
+	    <label for="time-2">Jam Bangun</label>
+	    <input type="time" data-clear-btn="true" name="time-2" id="time-2" value="">
+	</form>
+		<a href="#tidurhasil" data-role="button" data-theme="d">Submit</a>
+	</div>
+	<div data-role="footer"
+			data-position="fixed"
+			data-id="vs_footer">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" 
+					data-role="button"
+					data-icon="home"
+					>Home</a></li>
+<li><a href="#makan" 
+					data-role="button"
+					data-icon="flat-time"
+					>Makan</a></li>
+					<li><a href="#olahraga" 
+					data-role="button"
+					data-icon="flat-cmd"
+					>Olahraga</a></li>
+					<li><a href="#tidur" 
+					data-role="button"
+					data-icon="flat-bubble"
+					>Tidur</a></li>
+					<li><a href="#setting" 
+					data-role="button"
+					data-icon="flat-settings"
+					>Setting</a></li>
+				</ul>
+			</div><!-- navbar -->
+		</div><!-- footer -->
+</div>
+
+<div data-role="page" id="tidurhasil" data-title="Hasil">
+	<div data-role="header" data-id="vs_header">
+		<h1>Pilihan Waktu Tidur</h1>
+		<a data-iconpos="notext" href="#home" data-role="button" data-direction="reverse" data-icon="arrow-l"></a>
+		<a href="#about" data-icon="info" data-iconpos="notext">About</a>
+	</div>
+	<div data-role="content">
+		<p>Maaf, ada gangguan pada database, silahkan coba lagi..</p>
+	</div>
+	<div data-role="footer"
+			data-position="fixed"
+			data-id="vs_footer">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" 
+					data-role="button"
+					data-icon="home"
+					>Home</a></li>
+<li><a href="#makan" 
+					data-role="button"
+					data-icon="flat-time"
+					>Makan</a></li>
+					<li><a href="#olahraga" 
+					data-role="button"
+					data-icon="flat-cmd"
+					>Olahraga</a></li>
+					<li><a href="#tidur" 
+					data-role="button"
+					data-icon="flat-bubble"
+					>Tidur</a></li>
+					<li><a href="#setting" 
+					data-role="button"
+					data-icon="flat-settings"
+					>Setting</a></li>
+				</ul>
+			</div><!-- navbar -->
+		</div><!-- footer -->
+</div> 
+
+<div data-role="page" id="log" data-title="Log Hari Ini">
+	<div data-role="header" data-id="vs_header">
+		<h1>Log Hari Ini (dd/mm/tttt) :</h1>
+		<a data-iconpos="notext" href="#home" data-role="button" data-direction="reverse" data-icon="arrow-l"></a>
+		<a href="#about" data-icon="info" data-iconpos="notext">About</a>
+	</div>
+	<div data-role="content">
+		<form>
+			<fieldset data-role="controlgroup">
+			    <legend>Apakah Hari Ini Kamu:</legend>
+			    <label for="select-native-5">Makan teratur dan sehat</label>
+			    <select name="select-native-5" id="select-native-5">
+			        <option value="">Makan teratur dan sehat</option>
+			        <option value="10">Ya</option>
+			        <option value="-10">Nggak</option>
+			    </select>
+			    <label for="select-native-6">Olahraga</label>
+			    <select name="select-native-6" id="select-native-6">
+			        <option value="">Olahraga</option>
+			        <option value="10">Ya</option>
+			        <option value="-10">Nggak</option>
+			    </select>
+			    <label for="select-native-7">Tidur tepat waktu</label>
+			    <select name="select-native-7" id="select-native-7">
+			        <option value="">Tidur tepat waktu</option>
+			        <option value="10">Ya</option>
+			        <option value="-10">Nggak</option>
+			    </select>
+			</fieldset>
+		</form>
+		<a href="#home" data-role="button" data-theme="d">Update Poinku!</a>
+
+	</div>
+	<div data-role="footer"
+			data-position="fixed"
+			data-id="vs_footer">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" 
+					data-role="button"
+					data-icon="home"
+					>Home</a></li>
+					<li><a href="#makan" 
+					data-role="button"
+					data-icon="flat-time"
+					>Makan</a></li>
+					<li><a href="#olahraga" 
+					data-role="button"
+					data-icon="flat-cmd"
+					>Olahraga</a></li>
+					<li><a href="#tidur" 
+					data-role="button"
+					data-icon="flat-bubble"
+					>Tidur</a></li>
+					<li><a href="#setting" 
+					data-role="button"
+					data-icon="flat-settings"
+					>Setting</a></li>
+				</ul>
+			</div><!-- navbar -->
+		</div><!-- footer -->
+</div> 
+
+<div data-role="page" id="about" data-title="About">
+	<div data-role="header" data-id="vs_header">
+		<h1>About</h1>
+		<a data-iconpos="notext" href="#home" data-role="button" data-direction="reverse" data-icon="arrow-l"></a>
+		<a href="#about" data-icon="info" data-iconpos="notext">About</a>
+	</div>
+	<div data-role="content">
+		<div data-role="collapsible-set" data-theme="b" data-content-theme="b">
+        <div data-role="collapsible" data-collapsed-icon="flat-bubble" data-expanded-icon="flat-cross" data-collapsed="false">
+          <h3>Apa itu Gizr</h3>
+        <p>Gizr adalah aplikasi yang ditunjukan untuk membantu user memiliki gaya hidup sehat, mentrackingnya, dan memberi analisis perkembangan gaya hidup sehat user dari hari ke hari secara menyenangkan. </p>
+
+		<p>Secara default, user akan diberi poin 100, yang setiap hari bisa bertambah atau berkurang. </p>
+
+		<p>Sehari sekali user akan diminta mengisi log harian yang berisi 3 check-list sederhana terkait dengan makanan yang dikonsumsi, kualitas tidur, dan olahraga harian. </p>
+
+		<p>Bila user menjawab ya, masing-masing akan memberi poin tambah 10 (berarti total 30 bila user menjawab "ya" untuk semua pertanyaan), dan akan bernilai -10 untuk masing-masing pertanyaan yang dijawab "tidak".</p>
+
+        </div>
+        <div data-role="collapsible" data-collapsed-icon="flat-calendar" data-expanded-icon="flat-cross">
+          <h3>Tools yang tersedia</h3>
+          <p>Terdapat tiga tools kesehatan yang tersedia, yaitu:</p>
+
+			<ol>
+			<li><strong>Menu Harian</strong>: Men-generate pilihan-pilihan makanan sehat dari mulai untuk sarapan sampai makan malam sesuai kebutuhan kalori user berdasarkan data yang sudah di setting.</li>
+			<li><strong>Jam Tidur</strong>: Meng-generate pilihan jam tidur mempertimbangkan kebutuhan tidur setiap hari dengan waktu harus bangun user.</li>
+			<li><strong>Workout Tracker</strong>: Mengarsip dan menganalisis jarak lari pagi, menyesuaikan visual jalan peta google maps.</li>
+			</ol>
+
+        </div>
+      </div>
+	</div>
+	<div data-role="footer"
+			data-position="fixed"
+			data-id="vs_footer">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" 
+					data-role="button"
+					data-icon="home"
+					>Home</a></li>
+					<li><a href="#makan" 
+					data-role="button"
+					data-icon="flat-time"
+					>Makan</a></li>
+					<li><a href="#olahraga" 
+					data-role="button"
+					data-icon="flat-cmd"
+					>Olahraga</a></li>
+					<li><a href="#tidur" 
+					data-role="button"
+					data-icon="flat-bubble"
+					>Tidur</a></li>
+					<li><a href="#setting" 
+					data-role="button"
+					data-icon="flat-settings"
+					>Setting</a></li>
+				</ul>
+			</div><!-- navbar -->
+		</div><!-- footer -->
+</div> <!-- makan abis -->
+
+</body>
+</html>
+
+
