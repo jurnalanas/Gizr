@@ -13,9 +13,12 @@
 	
     <script type="text/javascript" src="exercisetracker.js"></script> 
 
-<script src="jquery.mobile/jquery.js"></script>
+<script src="jquery.mobile/jquery.min.js"></script>
 <script src="jquery.mobile/jquery.mobile-1.3.1.min.js"></script>
 
+<script src="makanan.json"></script>
+
+<script src="aplikasi.js"></script>
 </head>
 <body> 
 <div data-role="page" id="home" data-theme="d" data-title="Home">
@@ -138,7 +141,8 @@
 		<a href="#about" data-icon="info" data-iconpos="notext">About</a>
 	</div>
 	<div data-role="content">
-		<p>Maaf, ada gangguan pada database, silahkan coba lagi..</p>
+		<ul data-role="listview" id="movie-data" data-theme="a">
+		</ul>
 	</div>
 	<div data-role="footer"
 			data-position="fixed"
@@ -177,11 +181,49 @@
 		<a href="#about" data-icon="info" data-iconpos="notext">About</a>
 	</div>
 	<div data-role="content">
-		<form>	
+   
+		<form id="cek_kalori" onsubmit="return Validate()">	
 			<div data-role="fieldcontain">
-				<label for="berat">Berat badan (kg)</label>
-				<input type="text" name="" id="berat" value="" />
-			</div>
+			  <fieldset data-role="controlgroup">
+			    <legend><strong>Saya ingin</strong></legend>
+			    <input type="radio" name="goal" id="goal_0" value="turun" />
+			    <label for="goal_0">Turunkan Berat Badan</label>
+			    <input type="radio" name="goal" id="goal_1" value="jaga" />
+			    <label for="goal_1">Jaga Kesehatan</label>
+			    <input type="radio" name="goal" id="goal_2" value="otot" />
+			    <label for="goal_2">Bentuk Otot</label>
+		      </fieldset>
+		  </div>
+
+			<div data-role="fieldcontain">
+			  <fieldset data-role="controlgroup" data-type="horizontal">
+			    <legend><strong>Saya</strong></legend>
+			    <input type="radio" name="gender" id="gender_0" value="0" />
+			    <label for="gender_0">Laki-laki</label>
+			    <input type="radio" name="gender" id="gender_1" value="1" />
+			    <label for="gender_1">Perempuan</label>
+		      </fieldset>
+              <br/>
+              <div class="calc_row">Tinggi: <input class="meters_input calc_input" type="text"> m <input class="cm_input calc_input" type="text"> cm </div><br>
+              <div class="calc_row">
+                             Berat: <input name="weight_kgs" class="kg_input calc_input" type="text"> kg
+                        </div>
+                       
+              
+		  </div>
+			<div data-role="fieldcontain">
+			  <fieldset data-role="controlgroup" data-type="horizontal">
+			    <legend>BodyFat</legend>
+			    <input type="radio" name="bodyfat" id="bodyfat_0" value="" />
+			    <label for="bodyfat_0">Rendah</label>
+			    <input type="radio" name="bodyfat" id="bodyfat_1" value="" />
+			    <label for="bodyfat_1">Medium</label>
+			    <input type="radio" name="bodyfat" id="bodyfat_2" value="" />
+			    <label for="bodyfat_2">Tinggi</label>
+		      </fieldset>
+		  </div>
+          
+			
 			<div data-role="fieldcontain">
 				<label for="select" class="select">Umur:</label>
 				<select id="select" name="select" data-native-menu="false">
@@ -193,14 +235,20 @@
 			<fieldset data-role="controlgroup" data-type="horizontal" class="pilih">
 	        <legend>Keaktifan sehari-hari:</legend>
 		        <input type="radio" name="radio-choice-h-2" id="radio-choice-h-2a" value="on" checked="checked">
+                
 		        <label for="radio-choice-h-2a">Biasa</label>
 		        <input type="radio" name="radio-choice-h-2" id="radio-choice-h-2b" value="off">
-		        <label for="radio-choice-h-2b">Sibuk</label>
+		        <label for="radio-choice-h-2b">Aktif</label>
 		        <input type="radio" name="radio-choice-h-2" id="radio-choice-h-2c" value="other">
 	        <label for="radio-choice-h-2c">Sibuk Sekali</label>
 	    	</fieldset>
-		</form><br>
-		<a href="#home" data-role="button" data-theme="d">Submit</a>
+	    	<a href="#kalori" data-role="button" data-theme="d" type="submit" >Submit</a>
+		</form>
+		<br>
+         
+		<!--<a href="#makan" data-role="button" data-theme="d">Submit</a>-->
+      
+         
 	</div>
 	<div data-role="footer"
 			data-position="fixed"
@@ -517,6 +565,62 @@
 			</fieldset>
 		</form>
 		<a href="#home" data-role="button" data-theme="d">Update Poinku!</a>
+
+	</div>
+	<div data-role="footer"
+			data-position="fixed"
+			data-id="vs_footer">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" 
+					data-role="button"
+					data-icon="home"
+					>Home</a></li>
+					<li><a href="#makan" 
+					data-role="button"
+					data-icon="flat-time"
+					>Makan</a></li>
+					<li><a href="#olahraga" 
+					data-role="button"
+					data-icon="flat-cmd"
+					>Olahraga</a></li>
+					<li><a href="#tidur" 
+					data-role="button"
+					data-icon="flat-bubble"
+					>Tidur</a></li>
+					<li><a href="#setting" 
+					data-role="button"
+					data-icon="flat-settings"
+					>Setting</a></li>
+				</ul>
+			</div><!-- navbar -->
+		</div><!-- footer -->
+</div> 
+<div data-role="page" id="kalori" data-title="Cek Kebutuhan Kalori">
+<div data-role="header" data-id="vs_header">
+		<h1>Cek Kebutuhan Kalori</h1>
+		<a data-iconpos="notext" href="#home" data-role="button" data-direction="reverse" data-icon="arrow-l"></a>
+		<a href="#about" data-icon="info" data-iconpos="notext">About</a>
+	</div>
+<div data-role="content">
+		<div class="entry_line_left">
+                        <span class="main_question">Saya mau mengkonsumsi <input name="kalori" type="text" value="2007"> <strong>kkal kalori</strong> dalam
+                        <select name="nummeals" class="mini" id="second_num_meals">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option selected="" value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                        </select>
+          <strong>kali makan sehari</strong></span>
+                       
+                        <div class="gen_area">
+                        <a data-theme="d" data-role="button"  href="#makan" data-loading-text="Generate!" onclick="EventHandler.runGenerate()">Generate</a> </div>
+                    <div class="not_sure"><a data-role="button"  href="#setting" data-theme="e">Nggak yakin?</a></div>
 
 	</div>
 	<div data-role="footer"

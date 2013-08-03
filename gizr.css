@@ -58,3 +58,12 @@ border: none;
 	text-align: center;
 	text-decoration: none;
 }
+
+.ui-field-contain div.ui-input-text {
+width: 9%;
+display: inline-block;
+}
+
+.ui-field-contain div.ui-input-text {
+margin: 1;
+}
