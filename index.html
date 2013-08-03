@@ -6,12 +6,12 @@
 <!-- <link rel="stylesheet" href="jquery.mobile/jquery.mobile.theme-1.3.1.min.css" type="text/css"/> -->
 <!-- <link rel="stylesheet" href="jquery.mobile/jquery.mobile-1.3.1.min.css" type="text/css"/> -->
 <link rel="stylesheet" href="jquery.mobile/jquery.mobile.flatui.css" type="text/css"/>
+<link rel="stylesheet" href="bootstrap.min.css" type="text/css"/>
+
 <link rel="stylesheet" href="gizr.css" type="text/css"/>
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDD353fOPh-KBUQ-2ekPCg75uxXRn0D9Tk&sensor=false"></script>
 
-	<script type="text/javascript" src="json2.js"></script>
-	
-    <script type="text/javascript" src="exercisetracker.js"></script> 
+
 
 <script src="jquery.mobile/jquery.min.js"></script>
 <script src="jquery.mobile/jquery.mobile-1.3.1.min.js"></script>
@@ -39,7 +39,7 @@
 	</li>
 	</ul>
 		<ul data-role="listview" data-inset="true" data-divider-theme="b">
-					<li data-role="list-divider">Poin kamu sekarang: <b>100</b></li>
+					<li data-role="list-divider">Poin kamu sekarang: <b name="poinku">100</b></li>
 					<li data-icon="flat-new" data-transition="slidefade" data-theme="f"><a href="#log" class="log">Isi Log Hari ini</a></li>
 					<li data-role="list-divider">Menu</li>
 					<li data-icon="flat-lock" data-transition="slidefade"><a href="#makan">Rekomendasi Menu</a></li>
@@ -141,7 +141,17 @@
 		<a href="#about" data-icon="info" data-iconpos="notext">About</a>
 	</div>
 	<div data-role="content">
-		<ul data-role="listview" id="movie-data" data-theme="a">
+		<ul data-role="listview" id="movie-data" data-theme="b">
+			<li><a href="#headline"><img class="thumbnail" src="https://dl.dropbox.com/s/xivk4trqmscu65d/nasi%20goreng.JPG" class="ui-li-has-thumb"/><h3>nasi goreng</h3><p>nasi goreng + bawang + paha ayam + tomat dan ketimun + telur</p></a></li>
+			<!-- <p>Ada gangguan pada database..</p> -->
+		</ul><br>
+		<ul data-role="listview" id="movie-data" data-theme="b">
+			<li><a href="#headline"><img class="thumbnail" src="https://dl.dropbox.com/s/fygxvw3cfy5a7uf/sayur%20bayam.jpg" class="ui-li-has-thumb"/><h3>sayur bayam</h3><p>nasi putih + sayur bayam dan jagung</p></a></li>
+			<!-- <p>Ada gangguan pada database..</p> -->
+		</ul><br>
+		<ul data-role="listview" id="movie-data" data-theme="b">
+			<li><a href="#headline"><img class="thumbnail" src="https://dl.dropbox.com/s/hmsrcnc2qhjufbd/tumis%20kangkung.jpg" class="ui-li-has-thumb"/><h3>tumis kangkung</h3><p>nasi + tumis kangkung + tempe</p></a></li>
+			<!-- <p>Ada gangguan pada database..</p> -->
 		</ul>
 	</div>
 	<div data-role="footer"
@@ -545,19 +555,19 @@
 			<fieldset data-role="controlgroup">
 			    <legend>Apakah Hari Ini Kamu:</legend>
 			    <label for="select-native-5">Makan teratur dan sehat</label>
-			    <select name="select-native-5" id="select-native-5">
+			    <select name="log1" id="select-native-5">
 			        <option value="">Makan teratur dan sehat</option>
 			        <option value="10">Ya</option>
 			        <option value="-10">Nggak</option>
 			    </select>
 			    <label for="select-native-6">Olahraga</label>
-			    <select name="select-native-6" id="select-native-6">
+			    <select name="log2" id="select-native-6">
 			        <option value="">Olahraga</option>
 			        <option value="10">Ya</option>
 			        <option value="-10">Nggak</option>
 			    </select>
 			    <label for="select-native-7">Tidur tepat waktu</label>
-			    <select name="select-native-7" id="select-native-7">
+			    <select name="log3" id="select-native-7">
 			        <option value="">Tidur tepat waktu</option>
 			        <option value="10">Ya</option>
 			        <option value="-10">Nggak</option>

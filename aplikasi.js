@@ -1,3 +1,12 @@
+var poinku = document.getElementsByTagName('poinku');
+var poinku = 90;
+
+
+if (raidos[0].checked) {
+    inputs.value = 100;
+    formValid = true;
+}
+
 $(document).on('pagebeforeshow', '#home', function(e, data){      
     $.ajax({url: "makanan.json",
         dataType: "json",
@@ -10,6 +19,7 @@ $(document).on('pagebeforeshow', '#home', function(e, data){
         }
     });         
 });
+
 
 
 var ajax = {  
