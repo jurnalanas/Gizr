@@ -7,6 +7,7 @@
 <!-- <link rel="stylesheet" href="jqueryMobile/jqueryMobile131min.css" type="text/css"/> -->
 <link rel="stylesheet" href="jqueryMobile/jqueryMobileFlatui.css" type="text/css"/>
 <link rel="stylesheet" href="bootstrap.min.css" type="text/css"/>
+<!-- <link rel="stylesheet" type="text/css" href="jqm-datebox.min.css" />  -->
 
 <link rel="stylesheet" href="gizr.css" type="text/css"/>
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDD353fOPh-KBUQ-2ekPCg75uxXRn0D9Tk&sensor=false"></script>
@@ -15,8 +16,12 @@
 
 <script src="jqueryMobile/jqueryMin.js"></script>
 <script src="jqueryMobile/jqueryMobile131min.js"></script>
+<!-- <script type="text/javascript" src="jquery.mousewheel.min.js"></script>
+<script type="text/javascript" src="jqm-datebox.core.min.js"></script>
+<script type="text/javascript" src="jqm-datebox.mode.calbox.min.js"></script>
+<script type="text/javascript" src="jquery.mobile.datebox.i18n.en_US.utf8.js"></script> -->
 
-<script src="makanan.json"></script>
+<script src="makanan.js"></script>
 
 <script src="aplikasi.js"></script>
 </head>
@@ -39,12 +44,20 @@
 	</li>
 	</ul>
 		<ul data-role="listview" data-inset="true" data-divider-theme="b">
-					<li data-role="list-divider">Poin kamu sekarang: <b name="poinku">100</b></li>
-					<li data-icon="flat-new" data-transition="slidefade" data-theme="f"><a href="#log" class="log">Isi Log Hari ini</a></li>
+					<li data-role="list-divider">Poin kamu sekarang: <b name="poinku">
+						<script type="text/javascript">
+						if (typeof poin !== ("undefined" || "null"))
+							{document.write(poin);} else {
+								document.write("100");
+							}						
+						</script>
+					</b></li>
+
+					<li data-icon="flat-new" data-transition="slidefade" data-theme="f"><a href="#log" class="log">Isi Log Hari ini </a></li>
 					<li data-role="list-divider">Menu</li>
 					<li data-icon="flat-lock" data-transition="slidefade"><a href="#kalori">Rekomendasi Menu</a></li>
 					<li data-icon="flat-man" data-transition="slidefade"><a href="#olahraga">Olahraga</a></li>
-					<li data-icon="flat-time" data-transition="slidefade"><a href="#tidur">Tidur Tracker</a></li>
+					<li data-icon="flat-time" data-transition="slidefade"><a href="#tidurhasil">Tidur Tracker</a></li>
 		</ul>		
 	</div>
 	<div data-role="footer" data-position="fixed">
@@ -52,87 +65,7 @@
 	</div>
 </div>
 
-<div data-role="page" id="page2"> <!-- page2 -->
-	<div data-role="header" data-id="vs_header">
-		<h1>Page Two</h1>        
-	</div>
-	<div data-role="content" data-theme="b">
-		<div data-role="fieldcontain">
-			<label for="select" class="select"  data-theme="a">Choose:</label>
-			<select id="select" name="select" data-native-menu="false">
-				<option value="value1">option1</option>
-				<option value="value2">option2</option>
-				<option value="value3">option3</option>
-			</select>
-		</div>
-	  <div data-role="fieldcontain">
-	    <label for="flipswitch">Option:</label>
-	    <select name="flipswitch" id="flipswitch" data-role="slider">
-	      <option value="off">Off</option>
-	      <option value="on">On</option>
-        </select>
-      </div>
 
-    
-	<div data-role="collapsible-set" data-theme="b" data-content-theme="b">
-        <div data-role="collapsible" data-collapsed-icon="flat-time" data-expanded-icon="flat-cross" data-collapsed="false">
-          <h3>Section 1</h3>
-          <p>I'm the collapsible content for section 1</p>
-        </div>
-        <div data-role="collapsible" data-collapsed-icon="flat-calendar" data-expanded-icon="flat-cross">
-          <h3>Section 2</h3>
-          <p>I'm the collapsible content for section 2</p>
-        </div>
-        <div data-role="collapsible" data-collapsed-icon="flat-settings" data-expanded-icon="flat-cross">
-          <h3>Section 3</h3>
-          <p>I'm the collapsible content for section 3</p>
-        </div>
-      </div>
-    
-	  <div data-role="fieldcontain">
-	  	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	  	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	  	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	  	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	  	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	  	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-	    <label for="slider">Value:</label>
-	    <input name="slider" type="range" id="slider" max="100" min="0" value="0" data-theme="e" />
-      </div>
-    
-    <a href="#" data-role="button" data-icon="gear" data-iconpos="right">Button</a>	
-			
-	</div>
-	<div data-role="footer"
-			data-position="fixed"
-			data-theme="a"
-			data-id="vs_footer">
-			<div data-role="navbar">
-				<ul>
-					<li><a href="#home" 
-					data-role="button"
-					data-icon="home"
-					>Home</a></li>
-					<li><a href="#" 
-					data-role="button"
-					data-icon="arrow-r"
-					>Blog</a></li>
-					<li><a href="#videos" 
-					data-role="button"
-					data-icon="arrow-r"
-					>Videos</a></li>
-					<li><a href="#photos" 
-					data-role="button"
-					data-icon="arrow-r"
-					>Photos</a></li>
-					<li><a href="#tweets" 
-					data-role="button"
-					data-icon="arrow-r"
-					>Tweets</a></li>
-				</ul>
-			</div><!-- navbar -->
-		</div><!-- footer -->
-</div>
 
 <div data-role="page" id="makan" data-title="Menu">
 	<div data-role="header" data-id="vs_header">
@@ -141,10 +74,45 @@
 		<a href="#about" data-icon="info" data-iconpos="notext">About</a>
 	</div>
 	<div data-role="content">
-		
-			<p>Ada gangguan pada database..</p>
 
-	</div>
+		
+		<ul data-role="listview" id="movie-data" data-theme="b">
+			<li><a href="#headline"> <script>
+				var satu = Math.floor(Math.random() * (20 - 0) + 0);
+
+				document.writeln("<img class=\"thumbnail ui-li-has-thumb\" src=\""+makanan[satu].url+"\" />");
+				document.writeln("<h3>"+makanan[satu].nama+"<\/h3>");	
+				document.writeln("<p>"+makanan[satu].deskripsi+"<\/p>");
+				</script>
+				</a>
+			</li>
+			<!-- <p>Ada gangguan pada database..</p> -->
+		</ul><br>
+		<ul data-role="listview" id="movie-data" data-theme="b">
+			<li><a href="#headline"> <script>
+				var satu = Math.floor(Math.random() * (20 - 0) + 0);
+
+				document.writeln("<img class=\"thumbnail ui-li-has-thumb\" src=\""+makanan[satu].url+"\" />");
+				document.writeln("<h3>"+makanan[satu].nama+"<\/h3>");	
+				document.writeln("<p>"+makanan[satu].deskripsi+"<\/p>");
+				</script>
+				</a>
+			</li>
+			<!-- <p>Ada gangguan pada database..</p> -->
+		</ul><br>
+		<ul data-role="listview" id="movie-data" data-theme="b">
+			<li><a href="#headline"> <script>
+				var satu = Math.floor(Math.random() * (20 - 0) + 0);
+
+				document.writeln("<img class=\"thumbnail ui-li-has-thumb\" src=\""+makanan[satu].url+"\" />");
+				document.writeln("<h3>"+makanan[satu].nama+"<\/h3>");	
+				document.writeln("<p>"+makanan[satu].deskripsi+"<\/p>");
+				</script>
+				</a>
+			</li>
+			<!-- <p>Ada gangguan pada database..</p> -->
+		</ul><br>
+</div>
 	<div data-role="footer"
 			data-position="fixed"
 			data-id="vs_footer">
@@ -162,7 +130,7 @@
 					data-role="button"
 					data-icon="flat-cmd"
 					>Olahraga</a></li>
-					<li><a href="#tidur" 
+					<li><a href="#tidurhasil" 
 					data-role="button"
 					data-icon="flat-bubble"
 					>Tidur</a></li>
@@ -173,8 +141,8 @@
 				</ul>
 			</div><!-- navbar -->
 		</div><!-- footer -->
-</div> <!-- makan abis -->
-
+ </div><!-- makan abis -->
+</div>
 <div data-role="page" id="setting" data-title="Setting">
 	<div data-role="header" data-id="vs_header">
 		<h1>Pilihan Menu Makan</h1>
@@ -243,7 +211,7 @@
 		        <input type="radio" name="radio-choice-h-2" id="radio-choice-h-2c" value="other">
 	        <label for="radio-choice-h-2c">Sibuk Sekali</label>
 	    	</fieldset>
-	    	<a href="#kalori" data-role="button" data-theme="d" type="submit" >Submit</a>
+	    	<a href="#kalori" data-role="button" data-theme="d" id="dapatkan" type="submit" >Submit</a>
 		</form>
 		<br>
          
@@ -268,7 +236,7 @@
 					data-role="button"
 					data-icon="flat-cmd"
 					>Olahraga</a></li>
-					<li><a href="#tidur" 
+					<li><a href="#tidurhasil" 
 					data-role="button"
 					data-icon="flat-bubble"
 					>Tidur</a></li>
@@ -329,7 +297,7 @@
 					data-role="button"
 					data-icon="flat-cmd"
 					>Olahraga</a></li>
-					<li><a href="#tidur" 
+					<li><a href="#tidurhasil" 
 					data-role="button"
 					data-icon="flat-bubble"
 					>Tidur</a></li>
@@ -385,7 +353,7 @@
 					data-role="button"
 					data-icon="flat-cmd"
 					>Olahraga</a></li>
-					<li><a href="#tidur" 
+					<li><a href="#tidurhasil" 
 					data-role="button"
 					data-icon="flat-bubble"
 					>Tidur</a></li>
@@ -440,7 +408,7 @@
 					data-role="button"
 					data-icon="flat-cmd"
 					>Olahraga</a></li>
-					<li><a href="#tidur" 
+					<li><a href="#tidurhasil" 
 					data-role="button"
 					data-icon="flat-bubble"
 					>Tidur</a></li>
@@ -483,7 +451,7 @@
 					data-role="button"
 					data-icon="flat-cmd"
 					>Olahraga</a></li>
-					<li><a href="#tidur" 
+					<li><a href="#tidurhasil" 
 					data-role="button"
 					data-icon="flat-bubble"
 					>Tidur</a></li>
@@ -503,7 +471,9 @@
 		<a href="#about" data-icon="info" data-iconpos="notext">About</a>
 	</div>
 	<div data-role="content">
-		<p>Maaf, ada gangguan pada database, silahkan coba lagi..</p>
+		
+                <a href="#now" data-role="button" id="sleep_now">Mau tidur sekarang?</a>
+                <a href="#later" data-role="button" id="sleep_later">Tidur nanti saja</a>
 	</div>
 	<div data-role="footer"
 			data-position="fixed"
@@ -522,7 +492,7 @@
 					data-role="button"
 					data-icon="flat-cmd"
 					>Olahraga</a></li>
-					<li><a href="#tidur" 
+					<li><a href="#tidurhasil" 
 					data-role="button"
 					data-icon="flat-bubble"
 					>Tidur</a></li>
@@ -537,7 +507,7 @@
 
 <div data-role="page" id="log" data-title="Log Hari Ini">
 	<div data-role="header" data-id="vs_header">
-		<h1>Log Hari Ini (dd/mm/tttt) :</h1>
+		<h1>Log Hari Ini (<script type="text/javascript">document.writeln(today);</script>) :</h1>
 		<a data-iconpos="notext" href="#home" data-role="button" data-direction="reverse" data-icon="arrow-l"></a>
 		<a href="#about" data-icon="info" data-iconpos="notext">About</a>
 	</div>
@@ -545,27 +515,24 @@
 		<form>
 			<fieldset data-role="controlgroup">
 			    <legend>Apakah Hari Ini Kamu:</legend>
-			    <label for="select-native-5">Makan teratur dan sehat</label>
-			    <select name="log1" id="select-native-5">
-			        <option value="">Makan teratur dan sehat</option>
+			    <strong>Makan teratur dan sehat?</strong><p></p>
+			    <select name="log1" id="log1">
 			        <option value="10">Ya</option>
 			        <option value="-10">Nggak</option>
-			    </select>
-			    <label for="select-native-6">Olahraga</label>
-			    <select name="log2" id="select-native-6">
-			        <option value="">Olahraga</option>
+			    </select><p></p>
+			    <strong>Olahraga?</strong><p></p>
+			    <select name="log2" id="log2">
 			        <option value="10">Ya</option>
 			        <option value="-10">Nggak</option>
-			    </select>
-			    <label for="select-native-7">Tidur tepat waktu</label>
-			    <select name="log3" id="select-native-7">
-			        <option value="">Tidur tepat waktu</option>
+			    </select><p></p>
+			    <strong>Tidur tepat waktu?</strong><p></p>
+			    <select name="log3" id="log3">
 			        <option value="10">Ya</option>
 			        <option value="-10">Nggak</option>
 			    </select>
 			</fieldset>
 		</form>
-		<a href="#home" data-role="button" data-theme="d">Update Poinku!</a>
+		<a href="#home" data-role="button" on data-theme="d" onclick="update_poin();return false;">Update Poinku!</a>
 
 	</div>
 	<div data-role="footer"
@@ -585,7 +552,7 @@
 					data-role="button"
 					data-icon="flat-cmd"
 					>Olahraga</a></li>
-					<li><a href="#tidur" 
+					<li><a href="#tidurhasil" 
 					data-role="button"
 					data-icon="flat-bubble"
 					>Tidur</a></li>
@@ -605,7 +572,7 @@
 	</div>
 <div data-role="content">
 		<div class="entry_line_left">
-                        <span class="main_question">Saya mau mengkonsumsi <input name="kalori" type="text" value="2007"> <strong>kkal kalori</strong> dalam
+                        <span class="main_question">Saya mau mengkonsumsi <input name="kalori" type="text" id="input"> <strong>kkal kalori</strong> dalam
                         <select name="nummeals" class="mini" id="second_num_meals">
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -620,7 +587,7 @@
           <strong>kali makan sehari</strong></span>
                        
                         <div class="gen_area">
-                        <a data-theme="d" data-role="button"  href="#makan" data-loading-text="Generate!" onclick="EventHandler.runGenerate()">Generate</a> </div>
+                        <a data-theme="d" data-role="button"  href="#makan" data-loading-text="Generate!" onclick="milih_menu();">Generate</a> </div>
                     <div class="not_sure"><a data-role="button"  href="#setting" data-theme="e">Nggak yakin?</a></div>
 
 	</div>
@@ -641,7 +608,7 @@
 					data-role="button"
 					data-icon="flat-cmd"
 					>Olahraga</a></li>
-					<li><a href="#tidur" 
+					<li><a href="#tidurhasil" 
 					data-role="button"
 					data-icon="flat-bubble"
 					>Tidur</a></li>
@@ -652,6 +619,7 @@
 				</ul>
 			</div><!-- navbar -->
 		</div><!-- footer -->
+	</div>
 </div> 
 
 <div data-role="page" id="about" data-title="About">
@@ -703,7 +671,7 @@
 					data-role="button"
 					data-icon="flat-cmd"
 					>Olahraga</a></li>
-					<li><a href="#tidur" 
+					<li><a href="#tidurhasil" 
 					data-role="button"
 					data-icon="flat-bubble"
 					>Tidur</a></li>
@@ -716,6 +684,296 @@
 		</div><!-- footer -->
 </div> <!-- makan abis -->
 
+<!-- sleeep -->
+
+<div data-role="page" id="now" data-title="Tidur">
+	<div data-role="header" data-id="vs_header">
+		<h1>Analisis Jam Tidur</h1>
+		<a data-iconpos="notext" href="#home" data-role="button" data-direction="reverse"  data-icon="arrow-l"></a>
+		<a href="#about" data-icon="info" data-iconpos="notext">About</a>
+	</div>
+	<div data-role="content">
+                <a href="#" id="wakeUp" data-role="button">Beri saya waktu tidur</a>
+                <div id="wakeupTime"></div>
+                <a href="#tidurhasil"  data-role="button">Kembali</a>
+            </div>
+	<div data-role="footer"
+			data-position="fixed"
+			data-id="vs_footer">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" 
+					data-role="button"
+					data-icon="home"
+					>Home</a></li>
+<li><a href="#makan" 
+					data-role="button"
+					data-icon="flat-time"
+					>Makan</a></li>
+					<li><a href="#olahraga" 
+					data-role="button"
+					data-icon="flat-cmd"
+					>Olahraga</a></li>
+					<li><a href="#tidurhasil" 
+					data-role="button"
+					data-icon="flat-bubble"
+					>Tidur</a></li>
+					<li><a href="#setting" 
+					data-role="button"
+					data-icon="flat-settings"
+					>Setting</a></li>
+				</ul>
+			</div><!-- navbar -->
+		</div><!-- footer -->
+</div>
+
+<div data-role="page" id="later" data-title="Tidur">
+	<div data-role="header" data-id="vs_header">
+		<h1>Analisis Jam Tidur</h1>
+		<a data-iconpos="notext" href="#home" data-role="button" data-direction="reverse"  data-icon="arrow-l"></a>
+		<a href="#about" data-icon="info" data-iconpos="notext">About</a>
+	</div>
+	<div data-role="content">
+                <div id="sleepDisplay">
+                <h2>Pilih waktu tidur.</h2>
+                jam:
+                <select id="hour">
+                    <option value="0">00</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                </select>
+                Menit:
+                <select id="minute">
+                    <option value="0">00</option>
+                    <option value="1">01</option>
+                    <option value="2">02</option>
+                    <option value="3">03</option>
+                    <option value="4">04</option>
+                    <option value="5">05</option>
+                    <option value="6">06</option>
+                    <option value="7">07</option>
+                    <option value="8">08</option>
+                    <option value="9">09</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                    <option value="24">24</option>
+                    <option value="25">25</option>
+                    <option value="26">26</option>
+                    <option value="27">27</option>
+                    <option value="28">28</option>
+                    <option value="29">29</option>
+                    <option value="30">30</option>
+                    <option value="31">31</option>
+                    <option value="32">32</option>
+                    <option value="33">33</option>
+                    <option value="34">34</option>
+                    <option value="35">35</option>
+                    <option value="36">36</option>
+                    <option value="37">37</option>
+                    <option value="38">38</option>
+                    <option value="39">39</option>
+                    <option value="40">40</option>
+                    <option value="41">41</option>
+                    <option value="42">42</option>
+                    <option value="43">43</option>
+                    <option value="44">44</option>
+                    <option value="45">45</option>
+                    <option value="46">46</option>
+                    <option value="47">47</option>
+                    <option value="48">48</option>
+                    <option value="49">49</option>
+                    <option value="50">50</option>
+                    <option value="51">51</option>
+                    <option value="52">52</option>
+                    <option value="53">53</option>
+                    <option value="54">54</option>
+                    <option value="55">55</option>
+                    <option value="56">56</option>
+                    <option value="57">57</option>
+                    <option value="58">58</option>
+                    <option value="59">59</option>
+                </select>
+                <br/>
+                <a href="#"  data-role="button" id="laterTime">GO</a>
+                </div>
+                <div id="wakeupTime2"></div>
+                <a href="#"  data-role="button" id="newTime" style="display:none;">Baru</a>
+                <a href="#index"  data-role="button">Kembali</a>
+
+            </div>
+	<div data-role="footer"
+			data-position="fixed"
+			data-id="vs_footer">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" 
+					data-role="button"
+					data-icon="home"
+					>Home</a></li>
+<li><a href="#makan" 
+					data-role="button"
+					data-icon="flat-time"
+					>Makan</a></li>
+					<li><a href="#olahraga" 
+					data-role="button"
+					data-icon="flat-cmd"
+					>Olahraga</a></li>
+					<li><a href="#tidurhasil" 
+					data-role="button"
+					data-icon="flat-bubble"
+					>Tidur</a></li>
+					<li><a href="#setting" 
+					data-role="button"
+					data-icon="flat-settings"
+					>Setting</a></li>
+				</ul>
+			</div><!-- navbar -->
+		</div><!-- footer -->
+</div>
+
+</div>
+<script type="text/javascript">
+ $("#sleep_now").click(function(){ 
+                                $("#wakeupTime").empty(); 
+                                });
+            $("#sleep_now").click(function(){ 
+                                  $("#sleepDisplay").show();
+                                  $("#wakeupTime2").empty(); 
+                                  $("#newTime").hide(); 
+            });
+            $("#newTime").click(function(){ 
+                                $("#sleepDisplay").show();
+                                $("#wakeupTime2").empty(); 
+                                $("#newTime").hide(); 
+            });
+            
+            $("#wakeUp").click(function(){ 
+                // do your thing!
+                var currentTime = new Date();
+                wakeupEarly = new Date(currentTime);
+                wakeupModerate = new Date(currentTime);
+                wakeupLate = new Date(currentTime);
+                
+                wakeupEarly.setMinutes(currentTime.getMinutes() + 360);
+                wakeupModerate.setMinutes(currentTime.getMinutes() + 450);
+                wakeupLate.setMinutes(currentTime.getMinutes() + 540);
+                
+               earlyHours = wakeupEarly.getHours();
+               earlyMinutes = wakeupEarly.getMinutes();
+               if (earlyMinutes < 10){
+                    earlyMinutes = "0" + earlyMinutes;
+               }
+                               
+               moderateHours = wakeupModerate.getHours();
+               moderateMinutes = wakeupModerate.getMinutes();
+               if (moderateMinutes < 10){
+                    moderateMinutes = "0" + moderateMinutes;
+               }
+                               
+               lateHours = wakeupLate.getHours();
+               lateMinutes = wakeupLate.getMinutes();
+               if (lateMinutes < 10){
+                    lateMinutes = "0" + lateMinutes;
+               }
+               
+               var ampm = (earlyHours > 11 ? "Sore" : "Pagi");
+               earlyTime = earlyHours + ":" + earlyMinutes + " " + ampm;
+               var ampm = (moderateHours > 11 ? "Sore" : "Pagi");
+               moderateTime = moderateHours + ":" + moderateMinutes + " " + ampm;
+               var ampm = (lateHours > 11 ? "Sore" : "Pagi");
+               lateTime = lateHours + ":" + lateMinutes + " " + ampm;
+                               
+                var times = earlyTime + "<br/>" + moderateTime + "<br/>" + lateTime;
+                               
+                //var times = currentTime + "<br/>" + wakeupEarly + "<br/>" + wakeupModerate + "<br/>" + wakeupLate;
+                $("#wakeupTime").html(times);
+                 
+            });
+                
+            $("#laterTime").click(function(){ 
+                      var hour = $("#hour").val();
+                      var hour_milli_sec = hour * 3600000;
+                      var minute = $("#minute").val();
+                      var minute_milli_sec = minute * 60000;
+                      var d = new Date();
+                      var n = d.getTime();
+                      
+                      var total_time = n + hour_milli_sec + minute_milli_sec;
+                      var futureTime = new Date(total_time);
+                      
+                      wakeupEarly = new Date(futureTime);
+                      wakeupModerate = new Date(futureTime);
+                      wakeupLate = new Date(futureTime);
+                    
+                      wakeupEarly.setMinutes(futureTime.getMinutes() - 360);
+                      wakeupModerate.setMinutes(futureTime.getMinutes() - 450);
+                      wakeupLate.setMinutes(futureTime.getMinutes() - 540);
+                      
+                      earlyHours = wakeupEarly.getHours();
+                      earlyMinutes = wakeupEarly.getMinutes();
+                      if (earlyMinutes < 10){
+                      earlyMinutes = "0" + earlyMinutes;
+                      }
+                      
+                      moderateHours = wakeupModerate.getHours();
+                      moderateMinutes = wakeupModerate.getMinutes();
+                      if (moderateMinutes < 10){
+                      moderateMinutes = "0" + moderateMinutes;
+                      }
+                      
+                      lateHours = wakeupLate.getHours();
+                      lateMinutes = wakeupLate.getMinutes();
+                      if (lateMinutes < 10){
+                      lateMinutes = "0" + lateMinutes;
+                      }
+                      
+                      var ampm = (earlyHours > 11 ? "Sore" : "Pagi");
+                      earlyTime = earlyHours + ":" + earlyMinutes + " " + ampm;
+                      var ampm = (moderateHours > 11 ? "Sore" : "Pagi");
+                      moderateTime = moderateHours + ":" + moderateMinutes + " " + ampm;
+                      var ampm = (lateHours > 11 ? "Sore" : "Pagi");
+                      lateTime = lateHours + ":" + lateMinutes + " " + ampm;
+                      
+                      var times = earlyTime + "<br/>" + moderateTime + "<br/>" + lateTime;
+                      $("#sleepDisplay").hide();
+                      $("#newTime").show();
+                      $("#wakeupTime2").html(times);
+                      
+            });
+</script>
 </body>
 </html>
 

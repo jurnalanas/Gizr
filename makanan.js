@@ -1,0 +1,122 @@
+var makanan = [
+    {
+        "nama": "nasi goreng ",
+        "kalori": 657,
+        "deskripsi": "nasi goreng + bawang + paha ayam + tomat dan ketimun + telur",
+        "url": "https://dl.dropbox.com/s/xivk4trqmscu65d/nasi%20goreng.JPG"
+    },
+    {
+        "nama": "sayur bayam",
+        "kalori": 470,
+        "deskripsi": "nasi putih + sayur bayam dan jagung",
+        "url": "https://dl.dropbox.com/s/fygxvw3cfy5a7uf/sayur%20bayam.jpg"
+    },
+    {
+        "nama": "tumis kangkung",
+        "kalori": 617,
+        "deskripsi": "nasi + tumis kangkung + tempe",
+        "url": "https://dl.dropbox.com/s/hmsrcnc2qhjufbd/tumis%20kangkung.jpg"
+    },
+    {
+        "nama": "sate ayam",
+        "kalori": 634,
+        "deskripsi": "nasi + sate ayam",
+        "url": "https://dl.dropbox.com/s/bilr2w0bp98xqxy/sate%20ayam.jpg"
+    },
+    {
+        "nama": "nasi 3t",
+        "kalori": 816,
+        "deskripsi": "nasi + telur + tempe + tahu",
+        "url": "https://dl.dropbox.com/s/zce1ozgfa84xh5x/nasi%203t.jpg"
+    },
+    {
+        "nama": "nasi telur dadar sosis",
+        "kalori": 424,
+        "deskripsi": "nasi putih + telur dadar gulung sosis",
+        "url": "https://dl.dropbox.com/s/gm60srzad4bbv2s/telur%20dadar.JPG"
+    },
+    {
+        "nama": "sereal oatmeal",
+        "kalori": 260,
+        "deskripsi": "sereal oatmeal + buah stroberi",
+        "url": "https://dl.dropbox.com/s/udp68lnbopawkje/oatmeal.jpg"
+    },
+    {
+        "nama": "nasi telur dadar sosis",
+        "kalori": 424,
+        "deskripsi": "nasi putih + telur dadar gulung sosis",
+        "url": "https://dl.dropbox.com/s/gm60srzad4bbv2s/telur%20dadar.JPG"
+    },
+    {
+        "nama": "nasi sayur lodeh",
+        "kalori": 822,
+        "deskripsi": "nasi putih + sayur lodeh",
+        "url": "https://dl.dropbox.com/s/6quazuaxqngrkj7/sayur%20lodeh.JPG"
+    },
+    {
+        "nama": "ayam goreng tepung",
+        "kalori": 751,
+        "deskripsi": "nasi putih + ayam goreng tepung",
+        "url": "https://dl.dropbox.com/s/o1c0ke9rxorei4o/ayam%20goreng%20tepung.jpg"
+    },
+    {
+        "nama": "gado-gado lontong",
+        "kalori": 488,
+        "deskripsi": "gado-gado lontong yang lezat dan bergizi",
+        "url": "https://dl.dropbox.com/s/cjdcma617uyqwaz/gado%20gado%20lontong.jpg"
+    },
+    {
+        "nama": "bubur kacang ijo",
+        "kalori": 435,
+        "deskripsi": "bubur kacang ijo dengan santan",
+        "url": "https://dl.dropbox.com/s/fiwcy2ehcijuc05/bubur%20kacang%20ijo.jpg"
+    },
+    {
+        "nama": "kwetiau goreng kerang",
+        "kalori": 743,
+        "deskripsi": "kwetiau goreng kerang yang lezat namun banyak mengandung kalori",
+        "url": "https://dl.dropbox.com/s/xb3ent8u7fuujn5/kwetiau%20goreng%20kerang.jpg"
+    },
+    {
+        "nama": "nasi rawon",
+        "kalori": 680,
+        "deskripsi": "nasi rawon dengan daging sapi",
+        "url": "https://dl.dropbox.com/s/ub7owoi1is7nls3/nasi%20rawon.jpg"
+    },
+    {
+        "nama": "nasi soto ayam",
+        "kalori": 596,
+        "deskripsi": "nasi putih + soto daging ayam + risol",
+        "url": "https://dl.dropbox.com/s/80qydr5n93b967t/soto%20ayam.JPG"
+    },
+    {
+        "nama": "pangsit goreng",
+        "kalori": 551,
+        "deskripsi": "renyah kriuk kriuk!",
+        "url": "https://dl.dropbox.com/s/yjf8xg0v6fy43v1/pangsit%20goreng.jpg"
+    },
+    {
+        "nama": "mie bakso",
+        "kalori": 400,
+        "deskripsi": "mie + bakso + sayur cesim",
+        "url": "https://dl.dropbox.com/s/902z5f0wns42ia7/mie%20bakso.jpg"
+    },
+    {
+        "nama": "double cheeseburger",
+        "kalori": 460,
+        "deskripsi": "double cheeseburger",
+        "url": "https://dl.dropbox.com/s/mtcm1dr339mzl5e/double%20cheeseburger.jpg"
+    },
+    {
+        "nama": "nastar",
+        "kalori": 538,
+        "deskripsi": "cukup empat kue nastar",
+        "url": "https://dl.dropbox.com/s/tj3fwhob59qd7ny/nastar.jpg"
+    },
+    {
+        "nama": "kastengels",
+        "kalori": 426,
+        "deskripsi": "cukup tujuh kue kastengels",
+        "url": "https://dl.dropbox.com/s/ffjs2iz61dc2u1a/kastengels.jpg"
+    }
+]
