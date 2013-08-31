@@ -13,13 +13,16 @@
 	
 
 
-<script src="http://maps.googleapis.com/maps/api/js?sensor=true"></script>
+
 <script src="jqueryMobile/jqueryMin.js"></script>
 <script src="jqueryMobile/jqueryMobile131min.js"></script>
-  
+  <script src="http://maps.googleapis.com/maps/api/js?sensor=true"></script>
   <script type="text/javascript" src="jquery.mobile/jquery.ui.map.js"></script>
   <script type="text/javascript" src="jquery.mobile/jquery.ui.map.extensions.js"></script>
-
+<!-- <script type="text/javascript" src="jquery.mousewheel.min.js"></script>
+<script type="text/javascript" src="jqm-datebox.core.min.js"></script>
+<script type="text/javascript" src="jqm-datebox.mode.calbox.min.js"></script>
+<script type="text/javascript" src="jquery.mobile.datebox.i18n.en_US.utf8.js"></script> -->
 
 <script src="makanan.js"></script>
 
@@ -250,29 +253,25 @@
 </div>
 
 <!-- Start of Trackwork Out page -->
-<div data-role="page" id="olahraga" data-title="Olahraga">
-
-	<div data-role="header">
-		<h1>Track Lari</h1>
-		<a data-iconpos="notext" href="#home" data-role="button" data-direction="reverse" data-icon="arrow-l"></a>
-		<a href="#about" data-icon="info" data-iconpos="notext">About</a>
-	<hr>
-		<div data-role="navbar">
-			<ul data-theme="g">
-				<li><a href="#olahraga" data-transition="none" data-icon="home" selected>Olahraga</a></li>
-				<!-- <li><a href="#startTracking" data-transition="none" data-icon="plus">Track Workout</a></li> -->
-				<li><a href="#history" data-transition="none" data-icon="star">History</a></li>
-			</ul>
-		</div>
-	</div>
-
-	<div data-role="content">	
-		<button data-role="button" class="startTracking" data-theme="b">Mulai Tracking</button>
+<div data-role=page id="olahraga">
+    <div data-role=header>
+      <h1>Tracker</h1>
+    </div>
+    <div data-role=content>
+		<a href="#trackPage2" data-role="button" class="startTracking" data-theme="b">Mulai Tracking</a>
 		<button data-role="button" class="stopTracking" data-theme="e">Stop Tracking</button> 
-		<div id="canvas_trackPage" style="height:300px"></div>
-		
-		
-	</div>
+		<div id="map_canvas" style="height:300px"></div>
+    </div>
+	<!-- <div data-role="popup" id="validateGeolocation" data-overlay-theme="a">
+		<div data-role="header">
+			<h1>Konfirmasi</h1>
+		</div>
+		<div data-role="content">
+		<p class="info">Izinkan aplikasi ini untuk menggunakan lokasi Anda?</p>
+		<a href="#trackPage" data-role="button" id="yes" data-theme="b">Ya</a>
+		<a data-rel="back" data-role="button" id="no">Tidak</a>
+		</div>
+	</div> -->
 	<div data-role="footer"
 			data-position="fixed"
 			data-id="vs_footer">
@@ -290,7 +289,7 @@
 					data-role="button"
 					data-icon="flat-cmd"
 					>Olahraga</a></li>
-					<li><a href="#tidurhasil" 
+					<li><a href="#tidur" 
 					data-role="button"
 					data-icon="flat-bubble"
 					>Tidur</a></li>
@@ -301,7 +300,45 @@
 				</ul>
 			</div><!-- navbar -->
 		</div><!-- footer -->
-</div><!-- /page -->
+</div>
+<div data-role="page" id="trackPage2">
+	<div data-role=header>
+      <h1>Tracker</h1>
+    </div>
+    <div data-role=content>
+		<button data-role="button" class="startTracking" data-theme="b">Mulai Tracking</button>
+		<button data-role="button" class="stopTracking" data-theme="e">Stop Tracking</button> 
+		<div id="canvas_trackPage" style="height:300px"></div>
+    </div>
+	<div data-role="footer"
+			data-position="fixed"
+			data-id="vs_footer">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" 
+					data-role="button"
+					data-icon="home"
+					>Home</a></li>
+<li><a href="#makan" 
+					data-role="button"
+					data-icon="flat-time"
+					>Makan</a></li>
+					<li><a href="#olahraga" 
+					data-role="button"
+					data-icon="flat-cmd"
+					>Olahraga</a></li>
+					<li><a href="#tidur" 
+					data-role="button"
+					data-icon="flat-bubble"
+					>Tidur</a></li>
+					<li><a href="#setting" 
+					data-role="button"
+					data-icon="flat-settings"
+					>Setting</a></li>
+				</ul>
+			</div><!-- navbar -->
+		</div><!-- footer -->
+</div>
 
 <!-- Start of the History page -->
 <div data-role="page" id="history">
@@ -967,12 +1004,12 @@
                       
             });
 
-$(document).on("pageinit", "#home", function (evt) {
+	$(document).on("pageinit", "#olahraga", function (evt) {
                 // Also works with: var yourStartLatLng = '59.3426606750, 18.0736160278';
                 var yourStartLatLng = new google.maps.LatLng(59.3426606750, 18.0736160278);
                 $('#map_canvas').gmap({'center': yourStartLatLng});
         });
-		$(document).on("pageinit", "#trackPage", function (evt){
+		$(document).on("pageinit", "#trackPage2", function (evt){
 			navigator.geolocation.getCurrentPosition(function (pos) {
 				var lat = pos.coords.latitude;
 				var lng = pos.coords.longitude;
@@ -989,7 +1026,7 @@ $(document).on("pageinit", "#home", function (evt) {
 				position: event.latLng,
 				map : map
 			});
-		}
+	}
 </script>
 </body>
 </html>
