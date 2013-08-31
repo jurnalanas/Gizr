@@ -10,16 +10,16 @@
 <!-- <link rel="stylesheet" type="text/css" href="jqm-datebox.min.css" />  -->
 
 <link rel="stylesheet" href="gizr.css" type="text/css"/>
-	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDD353fOPh-KBUQ-2ekPCg75uxXRn0D9Tk&sensor=false"></script>
+	
 
 
-
+<script src="http://maps.googleapis.com/maps/api/js?sensor=true"></script>
 <script src="jqueryMobile/jqueryMin.js"></script>
 <script src="jqueryMobile/jqueryMobile131min.js"></script>
-<!-- <script type="text/javascript" src="jquery.mousewheel.min.js"></script>
-<script type="text/javascript" src="jqm-datebox.core.min.js"></script>
-<script type="text/javascript" src="jqm-datebox.mode.calbox.min.js"></script>
-<script type="text/javascript" src="jquery.mobile.datebox.i18n.en_US.utf8.js"></script> -->
+  
+  <script type="text/javascript" src="jquery.mobile/jquery.ui.map.js"></script>
+  <script type="text/javascript" src="jquery.mobile/jquery.ui.map.extensions.js"></script>
+
 
 <script src="makanan.js"></script>
 
@@ -267,16 +267,9 @@
 	</div>
 
 	<div data-role="content">	
-		<p id="startTracking_status"></p>
-			<div data-role="fieldcontain" class="ui-hide-label">
-				<label for="track_id">Track ID/Name:</label>
-				<input type="text" name="track_id" id="track_id" placeholder="Nama Id"/>
-			</div>
-
-		<button data-role="button" id="startTracking_start" data-theme="f">Mulai Tracking</button>
-		<button data-role="button" id="startTracking_stop" data-theme="d">Stop Tracking</button>  
-		
-				<p id="startTracking_info"></p>
+		<button data-role="button" class="startTracking" data-theme="b">Mulai Tracking</button>
+		<button data-role="button" class="stopTracking" data-theme="e">Stop Tracking</button> 
+		<div id="canvas_trackPage" style="height:300px"></div>
 		
 		
 	</div>
@@ -973,6 +966,30 @@
                       $("#wakeupTime2").html(times);
                       
             });
+
+$(document).on("pageinit", "#home", function (evt) {
+                // Also works with: var yourStartLatLng = '59.3426606750, 18.0736160278';
+                var yourStartLatLng = new google.maps.LatLng(59.3426606750, 18.0736160278);
+                $('#map_canvas').gmap({'center': yourStartLatLng});
+        });
+		$(document).on("pageinit", "#trackPage", function (evt){
+			navigator.geolocation.getCurrentPosition(function (pos) {
+				var lat = pos.coords.latitude;
+				var lng = pos.coords.longitude;
+				var latlng = new google.maps.LatLng(lat, lng);
+				$('#canvas_trackPage').gmap({'center': latlng, 'zoom': 17, 'mapTypeId': google.maps.MapTypeId.ROADMAP});
+				$('#canvas_trackPage').gmap('addMarker', { 'position' : latlng, 'animation' : google.maps.Animation.DROP});
+				//$('#canvas_trackPage').gmap('refresh');
+				var map = $("#canvas_trackPage");
+				google.maps.event.addListener(map, 'click', addPoint);
+			});
+		});
+		function addPoint(event) {
+			var marker = new google.maps.Marker({
+				position: event.latLng,
+				map : map
+			});
+		}
 </script>
 </body>
 </html>
