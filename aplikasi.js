@@ -24,37 +24,36 @@ var myLocalStorage = {
 var poin = myLocalStorage.get('poin');
 
 function update_poin() {
-    if(document.getElementById("log1").checked=true) {
+    if(document.getElementById("log1").checked) {
 
-        if(poin != undefined) {
+        if(poin !== undefined) {
             poin = poin + 10;
 
         } else {
             poin = 110;
         }
     } else {
-        if(poin != undefined) {
+        if(poin !== undefined) {
             poin = poin - 10;
         } else {
             poin = 90;
         }
     }
-    if(document.getElementById("log2").checked=true) {
-        if(poin != undefined) {
+    if(document.getElementById("log2").checked) {
+        if(poin !== undefined) {
             poin = poin + 10;
         } 
-        localStorage.poin = poin;
     } else {
-        if(poin != undefined) {
+        if(poin !== undefined) {
             poin = poin - 10;
         } 
     }
-    if(document.getElementById("log3").checked=true) {
-        if(poin != undefined) {
+    if(document.getElementById("log3").checked) {
+        if(poin !== undefined) {
             poin = poin + 10;
         } 
     } else {
-        if(poin != undefined) {
+        if(poin !== undefined) {
             poin = poin - 10;
         } 
     }
