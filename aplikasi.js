@@ -3,7 +3,7 @@ var dd = today.getDate();
 var mm = today.getMonth()+1; //January is 0!
 
 var yyyy = today.getFullYear();
-if(dd<10){dd='0'+dd} if(mm<10){mm='0'+mm} today = mm+'/'+dd+'/'+yyyy;
+if(dd<10){dd='0'+dd;} if(mm<10){mm='0'+mm;} today = mm+'/'+dd+'/'+yyyy;
 // variabel poin
 var kalori;
 
@@ -19,12 +19,10 @@ var myLocalStorage = {
 
 
 
-// myLocalStorage.set( 'poin', 100 );
-
 var poin = myLocalStorage.get('poin');
-
+myLocalStorage.set('poin', 100);
 function update_poin() {
-    if(document.getElementById("log1").checked) {
+    if(document.getElementById("log1").selected) {
 
         if(poin !== undefined) {
             poin = poin + 10;
@@ -38,24 +36,24 @@ function update_poin() {
         } else {
             poin = 90;
         }
-    }
-    if(document.getElementById("log2").checked) {
+    } myLocalStorage.set('poin', poin);
+    if(document.getElementById("log2").selected) {
         if(poin !== undefined) {
             poin = poin + 10;
-        } 
+        }
     } else {
         if(poin !== undefined) {
             poin = poin - 10;
-        } 
-    }
-    if(document.getElementById("log3").checked) {
+        }
+    } myLocalStorage.set('poin', poin);
+    if(document.getElementById("log3").selected) {
         if(poin !== undefined) {
             poin = poin + 10;
-        } 
+        }
     } else {
         if(poin !== undefined) {
             poin = poin - 10;
-        } 
+        }
     }
 myLocalStorage.set('poin', poin);
 }

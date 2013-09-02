@@ -15,6 +15,7 @@
 
 
 <script src="jqueryMobile/jqueryMin.js"></script>
+
 <script src="jqueryMobile/jqueryMobile131min.js"></script>
   <script src="http://maps.googleapis.com/maps/api/js?sensor=true"></script>
   <script type="text/javascript" src="jquery.mobile/jquery.ui.map.js"></script>
@@ -49,14 +50,19 @@
 		<ul data-role="listview" data-inset="true" data-divider-theme="b">
 					<li data-role="list-divider">Poin kamu sekarang: <b name="poinku">
 						<script type="text/javascript">
-						if (typeof poin !== ("undefined" || "null"))
-							{document.write(poin);} else {
+						if (poin)
+							{document.write(poin);
+							} else {
 								document.write("100");
-							}						
+							}	
+							// if (typeof poin !== ("undefined" || "null"))
+							// {document.write(poin);} else {
+							// 	document.write("100");
+							// }					
 						</script>
 					</b></li>
 
-					<li data-icon="flat-new" data-transition="slidefade" data-theme="f"><a href="#log" class="log">Isi Log Hari ini </a></li>
+					<li data-icon="flat-new" data-transition="slidefade" data-theme="f"><a href="update_poin.html#log" rel="external" class="log">Isi Log Hari ini </a></li>
 					<li data-role="list-divider">Menu</li>
 					<li data-icon="flat-lock" data-transition="slidefade"><a href="#kalori">Rekomendasi Menu</a></li>
 					<li data-icon="flat-man" data-transition="slidefade"><a href="#olahraga">Olahraga</a></li>

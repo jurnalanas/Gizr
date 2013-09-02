@@ -1,0 +1,101 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="utf-8">
+<title>Gizr app</title>
+<!-- <link rel="stylesheet" href="jqueryMobile/jqueryMobileTheme131min.css" type="text/css"/> -->
+<!-- <link rel="stylesheet" href="jqueryMobile/jqueryMobile131min.css" type="text/css"/> -->
+<link rel="stylesheet" href="jqueryMobile/jqueryMobileFlatui.css" type="text/css"/>
+<link rel="stylesheet" href="bootstrap.min.css" type="text/css"/>
+<!-- <link rel="stylesheet" type="text/css" href="jqm-datebox.min.css" />  -->
+
+<link rel="stylesheet" href="gizr.css" type="text/css"/>
+	
+
+
+
+<script src="jqueryMobile/jqueryMin.js"></script>
+<script src="jqueryMobile/jqueryMobile131min.js"></script>
+
+<script type="text/javascript" src="jqm-datebox.core.min.js"></script>
+<script type="text/javascript" src="jqm-datebox.mode.calbox.min.js"></script>
+<script type="text/javascript" src="jquery.mobile.datebox.i18n.en_US.utf8.js"></script> -->
+
+<script src="makanan.js"></script>
+
+<script src="aplikasi.js"></script>
+</head>
+<body> 
+
+
+<div data-role="page" id="log" data-title="Log Hari Ini">
+	<div data-role="header" data-id="vs_header">
+		<h1>Log Hari Ini (<script type="text/javascript">document.writeln(today);</script>) :</h1>
+		<a data-iconpos="notext" href="index.html#home" rel="external" data-role="button" data-direction="reverse" data-icon="arrow-l"></a>
+		<a href="index.html#about" rel="external" data-icon="info" data-iconpos="notext">About</a>
+	</div>
+	<div data-role="content">
+		<form>
+			<fieldset data-role="controlgroup">
+			    <legend>Apakah Hari Ini Kamu:</legend>
+			    <strong>Makan teratur dan sehat?</strong><p></p>
+			    <select name="log1" >
+			        <option id="log1" >Ya</option>
+			        <option value="-10">Nggak</option>
+			    </select><p></p>
+			    <strong>Olahraga?</strong><p></p>
+			    <select name="log2" >
+			        <option id="log2" value="10">Ya</option>
+			        <option value="-10">Nggak</option>
+			    </select><p></p>
+			    <strong>Tidur tepat waktu?</strong><p></p>
+			    <select name="log3" >
+			        <option id="log3" value="10">Ya</option>
+			        <option value="-10">Nggak</option>
+			    </select>
+			</fieldset>
+		</form>
+		<a href="index.html#home" data-role="button" on data-theme="d" onclick="update_poin();return true;">Update Poinku!</a>
+
+	</div>
+	<div data-role="footer"
+			data-position="fixed" 
+			data-id="vs_footer">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="index.html" 
+					data-role="button"
+					data-icon="home" rel="external"
+					>Home</a></li>
+					<li><a href="index.html#makan"  rel="external"
+					data-role="button"
+					data-icon="flat-time"
+					>Makan</a></li>
+					<li><a href="index.html#olahraga" rel="external" 
+					data-role="button"
+					data-icon="flat-cmd"
+					>Olahraga</a></li>
+					<li><a href="index.html#tidurhasil" rel="external" 
+					data-role="button"
+					data-icon="flat-bubble"
+					>Tidur</a></li>
+					<li><a href="index.html#setting" rel="external" 
+					data-role="button"
+					data-icon="flat-settings"
+					>Setting</a></li>
+				</ul>
+			</div><!-- navbar -->
+		</div><!-- footer -->
+</div> 
+
+
+
+
+
+
+</div>
+
+</body>
+</html>
+
+
