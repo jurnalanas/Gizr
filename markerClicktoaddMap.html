@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="jqueryMobile/jqueryMobile131min.css" />
+<script src="jquery.js"></script>
+<script src="jqueryMobile/jqueryMobile131min.js"></script>
+<script src="http://maps.googleapis.com/maps/api/js?sensor=true&libraries=places"></script>
+<script>
+var map;
+var countMarkers = 0;
+var directionsDisplay;
+var directionsService = new google.maps.DirectionsService();
+var myCenter=new google.maps.LatLng(51.508742,-0.120850);
+var markers = new Array();
+var objectMarkers = [];
+
+//For current date
+Date.prototype.today = function(){ 
+    return ((this.getDate() < 10)?"0":"") + this.getDate() +"/"+(((this.getMonth()+1) < 10)?"0":"") + (this.getMonth()+1) +"/"+ this.getFullYear() 
+};
+//For current time
+Date.prototype.timeNow = function(){
+     return ((this.getHours() < 10)?"0":"") + this.getHours() +":"+ ((this.getMinutes() < 10)?"0":"") + this.getMinutes() +":"+ ((this.getSeconds() < 10)?"0":"") + this.getSeconds();
+};
+
+function initialize(){
+var rendererOptions = {
+  draggable: true
+};
+directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions);
+var mapProp = {
+  center:myCenter,
+  zoom:13,
+  mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+  map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+  if(navigator.geolocation) {
+	navigator.geolocation.getCurrentPosition(function(position) {
+		var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+		map.setCenter(pos);
+	});
+  } else {
+	map.setCenter(myCenter);
+	$("#unsupported-geolocation").popup("open");
+  }
+  directionsDisplay.setMap(map);
+  
+  // event listener click-to-add-markers
+  google.maps.event.addListener(map, 'click', function(event) {
+    if (countMarkers >= 10) {
+		$("#exceed-markers-popup").popup("open");
+	} else {
+		placeMarker(event.latLng);
+		markers.push(event.latLng);
+		if ((markers.length != 0) || (markers.length != 1)) {
+			calcRoute();
+		}
+		countMarkers++;
+	}
+  });
+  var input = document.getElementById("search-input");
+  var searchBox = new google.maps.places.SearchBox(input);
+  
+  var defaultBounds = new google.maps.LatLngBounds(
+      new google.maps.LatLng(-33.8902, 151.1759),
+      new google.maps.LatLng(-33.8474, 151.2631));
+  map.fitBounds(defaultBounds);
+  
+  var markersPlaces = [];
+
+  google.maps.event.addListener(searchBox, 'places_changed', function() {
+    var places = searchBox.getPlaces();
+
+    for (var i = 0, marker; marker = markersPlaces[i]; i++) {
+      marker.setMap(null);
+    }
+
+    markersPlaces = [];
+    var bounds = new google.maps.LatLngBounds();
+    for (var i = 0, place; place = places[i]; i++) {
+      var image = {
+        url: place.icon,
+        size: new google.maps.Size(71, 71),
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(17, 34),
+        scaledSize: new google.maps.Size(25, 25)
+      };
+
+      var markerSearch = new google.maps.Marker({
+        map: map,
+        icon: image,
+        title: place.name,
+        position: place.geometry.location
+      });
+
+      markersPlaces.push(markerSearch);
+
+      bounds.extend(place.geometry.location);
+    }
+
+    map.fitBounds(bounds);
+  });
+
+  google.maps.event.addListener(map, 'bounds_changed', function() {
+    var bounds = map.getBounds();
+    searchBox.setBounds(bounds);
+  });
+}
+
+function calcRoute() {
+  var start = markers[0];
+  var end = markers[markers.length - 1];
+  var wayPoints = new Array();
+  for (var i = 1; i<markers.length-1; i++) {
+	wayPoints.push({
+		location:markers[i],
+		stopover:true
+	});
+  }
+  var request = {
+	origin:start,
+	destination:end,
+	waypoints: wayPoints,
+	optimizeWaypoints: false,
+	travelMode: google.maps.DirectionsTravelMode.WALKING
+  };
+  directionsService.route(request, function(response, status) {
+	if(status == google.maps.DirectionsStatus.OK) {
+	  directionsDisplay.setDirections(response);
+	  var distancePanel = document.getElementById('distance-panel');
+	  distancePanel.innerHTML = "";
+	  computeTotalDistance(response);
+	  resetMarkers();
+	} else {
+	  alert("directions response "+status);
+	}
+  });  
+}
+
+function computeTotalDistance(result) {
+    var totalDist = 0;
+    var totalTime = 0;
+	var totalCalorie = 0;
+    var myroute = result.routes[0];
+    for (i = 0; i < myroute.legs.length; i++) {
+      totalDist += myroute.legs[i].distance.value;
+      totalTime += myroute.legs[i].duration.value;      
+    }
+    totalDist = totalDist / 1000.
+	totalCalorie = (totalDist / 7) * 295 * 2; 
+    document.getElementById("distance-panel").innerHTML = "Jarak total: "+ totalDist + " km<br>Waktu tempuh: " + (totalTime / 60).toFixed(2) + " menit<br>Total kalori yang terbakar: "+ totalCalorie.toFixed(2) + " cal";
+}
+	  
+function placeMarker(location) {
+  var marker = new google.maps.Marker({
+    position: location,
+    map: map,
+  });
+  map.panTo(location);
+  objectMarkers.push(marker);
+}
+
+//TODO:
+function saveTrack() {
+	//for(var i=0; i < markers.length; i++) {
+		
+	//}	
+}
+
+function resetMarkers() {
+	for (var i = 0; i < objectMarkers.length; i++) {
+        objectMarkers[i].setMap(null); //Remove the marker from the map
+    }
+}
+
+	
+$(document).ready(initialize);
+</script>
+</head>
+
+<body>
+<input id="search-input" type="text" placeholder="cari lokasi" data-theme="f">
+<div id="googleMap" style="height: 450px;"></div>
+<div id="distance-panel">
+	Jarak total: 0 km<br>Waktu tempuh: 0.00 menit<br>Total kalori yang terbakar: 0.00 cal
+</div>
+<img src='jquery.mobile/powered-by-google-on-white.png' style="float: right; padding: 0px; margin-top: -40px;">
+<div data-role="popup" id="exceed-markers-popup" data-overlay-theme="a">
+	<div data-role="header">
+		<h1>Peringatan</h1>
+	</div>
+	<div data-role="content">
+		<p class="info">Maksimum 10 penanda</p>
+		<a href="#" data-rel="back" data-role="button" class="ok-button">OK</a>
+	</div>
+</div>
+<div data-role="popup" id="unsupported-geolocation" data-overlay-theme="a">
+	<div data-role="header">
+		<h1>Notifikasi</h1>
+	</div>
+	<div data-role="content">
+		<p class="info">Device anda tidak support geolocation</p>
+		<a href="#" data-rel="back" data-role="button" class="ok-button">OK</a>
+	</div>
+</div>
+</body>
+</html>
