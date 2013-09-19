@@ -30,7 +30,7 @@
 <script src="aplikasi.js"></script>
 </head>
 <body> 
-<div data-role="page" id="home" data-theme="d" data-title="Home">
+<div data-role="page" data-transition="flow" id="home" data-theme="d" data-title="Home">
 	<div data-role="header" data-id="vs_header" data-nobackbtn="false">
 		<h1 class="logo">[ Gizr ]</h1>
 		<!-- <a href="#setting" data-theme="c" data-icon="grid" data-mini="true">Setting</a> -->
@@ -64,7 +64,7 @@
 
 					<li data-icon="flat-new" data-transition="slidefade" data-theme="f"><a href="update_poin.html#log" rel="external" class="log">Isi Log Hari ini </a></li>
 					<li data-role="list-divider">Menu</li>
-					<li data-icon="flat-lock" data-transition="slidefade"><a href="#kalori">Rekomendasi Menu</a></li>
+					<li data-icon="flat-lock" data-transition="slidefade"><a href="#makan">Rekomendasi Menu</a></li>
 					<li data-icon="flat-man" data-transition="slidefade"><a href="#olahraga">Olahraga</a></li>
 					<li data-icon="flat-time" data-transition="slidefade"><a href="#tidurhasil">Tidur Tracker</a></li>
 		</ul>		
@@ -76,7 +76,7 @@
 
 
 
-<div data-role="page" id="makan" data-title="Menu">
+<div data-role="page" data-transition="flow" id="makan" data-title="Menu">
 	<div data-role="header" data-id="vs_header">
 		<h1>Pilihan Menu Makan</h1>
 		<a data-iconpos="notext" href="#home" data-role="button" data-direction="reverse" data-icon="arrow-l"></a>
@@ -152,7 +152,7 @@
 		</div><!-- footer -->
  </div><!-- makan abis -->
 </div>
-<div data-role="page" id="setting" data-title="Setting">
+<div data-role="page" data-transition="flow" id="setting" data-title="Setting">
 	<div data-role="header" data-id="vs_header">
 		<h1>Pilihan Menu Makan</h1>
 		<a data-iconpos="notext" href="#home" data-role="button" data-direction="reverse"  data-icon="arrow-l"></a>
@@ -220,7 +220,7 @@
 		        <input type="radio" name="radio-choice-h-2" id="radio-choice-h-2c" value="other">
 	        <label for="radio-choice-h-2c">Sibuk Sekali</label>
 	    	</fieldset>
-	    	<a href="#kalori" data-role="button" data-theme="d" id="dapatkan" type="submit" >Submit</a>
+	    	<a href="#makan" data-role="button" data-theme="d" id="dapatkan" type="submit" >Submit</a>
 		</form>
 		<br>
          
@@ -259,26 +259,17 @@
 </div>
 
 <!-- Start of Trackwork Out page -->
-<div data-role=page id="olahraga">
-    <div data-role=header>
-      <h1>Tracker</h1>
-    </div>
-    <div data-role=content>
-		<a href="#trackPage2" data-role="button" class="startTracking" data-theme="b">Mulai Tracking</a>
-		<button data-role="button" class="stopTracking" data-theme="e">Stop Tracking</button> 
-		<div id="map_canvas" style="height:300px"></div>
-    </div>
-	<!-- <div data-role="popup" id="validateGeolocation" data-overlay-theme="a">
-		<div data-role="header">
-			<h1>Konfirmasi</h1>
-		</div>
-		<div data-role="content">
-		<p class="info">Izinkan aplikasi ini untuk menggunakan lokasi Anda?</p>
-		<a href="#trackPage" data-role="button" id="yes" data-theme="b">Ya</a>
-		<a data-rel="back" data-role="button" id="no">Tidak</a>
-		</div>
-	</div> -->
-	<div data-role="footer"
+    <div data-role="page" id="olahraga">
+      <div data-role="header" data-id="vs_header">
+		<h1>Jogging Buddy</h1>
+		<a data-iconpos="notext" href="#home" data-role="button" data-direction="reverse" data-icon="arrow-l"></a>
+		<a href="#about" data-icon="info" data-iconpos="notext">About</a>
+	</div>
+      <div data-role="content" id="map-canvas">
+        <iframe allowtransparency="true" frameborder="0" scrolling="no" src="marker_clicktoadd_map.html"
+        style="height: 560px; width: 100%;"></iframe>	
+      </div>
+      <div data-role="footer"
 			data-position="fixed"
 			data-id="vs_footer">
 			<div data-role="navbar">
@@ -287,7 +278,7 @@
 					data-role="button"
 					data-icon="home"
 					>Home</a></li>
-<li><a href="#makan" 
+					<li><a href="#makan" 
 					data-role="button"
 					data-icon="flat-time"
 					>Makan</a></li>
@@ -306,8 +297,8 @@
 				</ul>
 			</div><!-- navbar -->
 		</div><!-- footer -->
-</div>
-<div data-role="page" id="trackPage2">
+    </div>
+<div data-role="page" data-transition="flow" id="trackPage2">
 	<div data-role=header>
       <h1>Tracker</h1>
     </div>
@@ -347,7 +338,7 @@
 </div>
 
 <!-- Start of the History page -->
-<div data-role="page" id="history">
+<div data-role="page" data-transition="flow" id="history">
 
     <div data-role="header">
         <h1>History</h1>
@@ -403,7 +394,7 @@
 </div><!-- /page -->
 
 <!-- Track Info page -->
-<div data-role="page" id="track_info">
+<div data-role="page" data-transition="flow" id="track_info">
 
 	<div data-role="header">
 		<h1>View Satu Latihan</h1>
@@ -457,7 +448,7 @@
 		</div><!-- footer -->
 </div>
 
-<div data-role="page" id="tidur" data-title="Tidur">
+<div data-role="page" data-transition="flow" id="tidur" data-title="Tidur">
 	<div data-role="header" data-id="vs_header">
 		<h1>Analisis Jam Tidur</h1>
 		<a data-iconpos="notext" href="#home" data-role="button" data-direction="reverse"  data-icon="arrow-l"></a>
@@ -500,7 +491,7 @@
 		</div><!-- footer -->
 </div>
 
-<div data-role="page" id="tidurhasil" data-title="Hasil">
+<div data-role="page" data-transition="flow" id="tidurhasil" data-title="Hasil">
 	<div data-role="header" data-id="vs_header">
 		<h1>Pilihan Waktu Tidur</h1>
 		<a data-iconpos="notext" href="#home" data-role="button" data-direction="reverse" data-icon="arrow-l"></a>
@@ -541,7 +532,7 @@
 		</div><!-- footer -->
 </div> 
 
-<div data-role="page" id="log" data-title="Log Hari Ini">
+<div data-role="page" data-transition="flow" id="log" data-title="Log Hari Ini">
 	<div data-role="header" data-id="vs_header">
 		<h1>Log Hari Ini (<script type="text/javascript">document.writeln(today);</script>) :</h1>
 		<a data-iconpos="notext" href="#home" data-role="button" data-direction="reverse" data-icon="arrow-l"></a>
@@ -600,7 +591,7 @@
 			</div><!-- navbar -->
 		</div><!-- footer -->
 </div> 
-<div data-role="page" id="kalori" data-title="Cek Kebutuhan Kalori">
+<div data-role="page" data-transition="flow" id="kalori" data-title="Cek Kebutuhan Kalori">
 <div data-role="header" data-id="vs_header">
 		<h1>Cek Kebutuhan Kalori</h1>
 		<a data-iconpos="notext" href="#home" data-role="button" data-direction="reverse" data-icon="arrow-l"></a>
@@ -658,7 +649,7 @@
 	</div>
 </div> 
 
-<div data-role="page" id="about" data-title="About">
+<div data-role="page" data-transition="flow" id="about" data-title="About">
 	<div data-role="header" data-id="vs_header">
 		<h1>About</h1>
 		<a data-iconpos="notext" href="#home" data-role="button" data-direction="reverse" data-icon="arrow-l"></a>
@@ -722,7 +713,7 @@
 
 <!-- sleeep -->
 
-<div data-role="page" id="now" data-title="Tidur">
+<div data-role="page" data-transition="flow" id="now" data-title="Tidur">
 	<div data-role="header" data-id="vs_header">
 		<h1>Analisis Jam Tidur</h1>
 		<a data-iconpos="notext" href="#home" data-role="button" data-direction="reverse"  data-icon="arrow-l"></a>
@@ -763,7 +754,7 @@
 		</div><!-- footer -->
 </div>
 
-<div data-role="page" id="later" data-title="Tidur">
+<div data-role="page" data-transition="flow" id="later" data-title="Tidur">
 	<div data-role="header" data-id="vs_header">
 		<h1>Analisis Jam Tidur</h1>
 		<a data-iconpos="notext" href="#home" data-role="button" data-direction="reverse"  data-icon="arrow-l"></a>

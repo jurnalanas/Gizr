@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "com.phonegap.anyconference"
-        version   = "1.0">
+        id        = "com.gizr.mamake"
+        version   = "1.0.1">
         
     <name>Gizr</name>
 
     <description>
-        Gizr adalah aplikasi yang ditunjukan untuk membantu user memiliki gaya hidup sehat, mentrackingnya, dan memberi analisis perkembangan gaya hidup sehat user dari hari ke hari secara menyenangkan.
+        Gizr is an app intended to help users have a healthy lifestyle, track it, and provides an analysis of the development of healthy lifestyles user from day to day with fun.
     </description>
 
-    <author href="http://jurnalanas.github.io" email="anas.bladz@gmail.com">
-        Muhammad Nassrurrohman, Kelompok Mamake
+    <author href="http://jurnalanas.com/gizr" email="anas.bladz@gmail.com">
+        Muhammad Nassrurrohman, Mamake
     </author>
 
     <feature name="http://api.phonegap.com/1.0/device" />
